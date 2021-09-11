@@ -2,6 +2,7 @@ package com.imooc.course.controller;
 
 import com.imooc.course.client.CourseListClient;
 import com.imooc.course.entity.Course;
+import com.imooc.course.entity.CourseAndPrice;
 import com.imooc.course.entity.CoursePrice;
 import com.imooc.course.service.CoursePriceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,11 @@ public class CoursePriceController {
     public List<Course> getCourseListInPrice(Integer courseId){
         List<Course> courses = courseListClient.courseList();
         return courses;
+    }
+
+    @GetMapping("/coursesAndPrice")
+    public List<CourseAndPrice> getCourseAndPrice(Integer courseId){
+        List<CourseAndPrice> courseAndPrice = coursePriceService.getCourseAndPrice();
+        return courseAndPrice;
     }
 }
